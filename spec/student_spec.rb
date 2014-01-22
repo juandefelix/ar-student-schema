@@ -1,5 +1,7 @@
 require 'rspec'
 require 'date'
+require 'debugger'
+
 require_relative '../app/models/student'
 
 
@@ -23,10 +25,12 @@ describe Student, "#name and #age" do
   end
 
   it "should concatenate first and last name" do
+    
     @student.name.should == "Happy Gilmore"
   end
 
   it "should be the right age" do
+    # debugger
     now = Date.today
     age = now.year - @student.birthday.year - ((now.month > @student.birthday.month || (now.month == @student.birthday.month && now.day >= @student.birthday.day)) ? 0 : 1)
     @student.age.should == age
@@ -107,6 +111,7 @@ describe Student, "advanced validations" do
   end
 
   it "should accept valid info" do
+    # debugger
     @student.should be_valid
   end
 
