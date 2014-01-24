@@ -5,8 +5,8 @@ require_relative '../config'
 class CreateStudents < ActiveRecord::Migration
   def change
     # HINT: checkout ActiveRecord::Migration.create_table
-    create_table :students do |t|
-      # t.integer :id 
+    create_table :students do |t| # CREATING a table called students
+      # t.integer :id  is NOT neccessary. AR does it for you
       t.string :first_name
       t.string :last_name
       t.string :gender
