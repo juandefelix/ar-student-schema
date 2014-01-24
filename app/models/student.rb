@@ -7,6 +7,8 @@ class Student < ActiveRecord::Base
     :message => "Insert a valid email"
   validate :valid_age?
   validate :valid_phone?
+  belongs_to :customer
+
   def name
     "#{first_name} #{last_name}"
   end
