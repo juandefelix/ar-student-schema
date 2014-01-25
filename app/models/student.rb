@@ -9,9 +9,9 @@ class Student < ActiveRecord::Base
   validate :valid_phone?
   belongs_to :customer
 
-  def name
-    "#{first_name} #{last_name}"
-  end
+  # def name
+  #   "#{first_name} #{last_name}"
+  # end
 
   def age
     now = Date.today

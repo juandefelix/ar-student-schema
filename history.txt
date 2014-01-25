@@ -1,0 +1,17 @@
+# Syntax of the version
+
+  313  rake db:drop
+  314  rake db:create
+  315  rake db:migrate VERSION=20140124152700
+  316  rake db:populate
+  317  rake db:migrate
+  318  rake db:migrate VERSION=20140124152700
+  319  rake db:migrate
+
+# To test the problem
+
+$ PREV_VERSION=`rake db:version | colrm 1 17`
+$ rake db:migrate
+$ rspec spec/student_internationalized_spec.rb -e "Student internationalized"
+$ rake db:migrate VERSION=$PREV_VERSION
+$ rspec spec/student_internationalized_spec.rb -e "Student symmetric migration"
